@@ -4,7 +4,7 @@ caminho = "Homework 1/TI0077_HW1_assignment/data/abalone.csv"
 #Armazenando os dados do abalone.csv em dados
 dados = read.csv2(caminho)
 
-#Instalando pacotes necessários
+#Instalando pacotes necessï¿½rios
 install.packages("e1071")
 install.packages("plyr")
 install.packages("gplot2")
@@ -29,16 +29,16 @@ library(ggfortify)
 #####Parte 2#####
 
 #Histogramas
-hist(dados$LongestShell, col = "#00deed", border = "black", main = "Casca maior", xlab = "mm", ylab = "Frequência", breaks = 64)
-hist(dados$Diameter, col = "#00deed", border = "black", main = "Diametro", xlab = "mm", ylab = "Frequência", breaks = 64)
-hist(dados$Height, col = "#00deed", border = "black", main = "Altura", xlab = "mm", ylab = "Frequência", breaks = 64)
-hist(dados$WholeWeight, col = "#00deed", border = "black", main = "Peso total", xlab = "gramas", ylab = "Frequência", breaks = 64)
-hist(dados$ShuckedWeight, col = "#00deed", border = "black", main = "Casca maior", xlab = "gramas", ylab = "Frequência", breaks = 64)
-hist(dados$VisceraWeight, col = "#00deed", border = "black", main = "Casca maior", xlab = "gramas", ylab = "Frequência", breaks = 64)
-hist(dados$ShellWeight, col = "#00deed", border = "black", main = "Casca maior", xlab = "gramas", ylab = "Frequência", breaks = 64)
-hist(dados$Rings, col = "#00deed", border = "black", main = "Casca maior", xlab = "Quantidade", ylab = "Frequência", breaks = 64)
+hist(dados$LongestShell, col = "#00deed", border = "black", main = "Casca maior", xlab = "mm", ylab = "Frequï¿½ncia", breaks = 64)
+hist(dados$Diameter, col = "#00deed", border = "black", main = "Diametro", xlab = "mm", ylab = "Frequï¿½ncia", breaks = 64)
+hist(dados$Height, col = "#00deed", border = "black", main = "Altura", xlab = "mm", ylab = "Frequï¿½ncia", breaks = 64)
+hist(dados$WholeWeight, col = "#00deed", border = "black", main = "Peso total", xlab = "gramas", ylab = "Frequï¿½ncia", breaks = 64)
+hist(dados$ShuckedWeight, col = "#00deed", border = "black", main = "Casca maior", xlab = "gramas", ylab = "Frequï¿½ncia", breaks = 64)
+hist(dados$VisceraWeight, col = "#00deed", border = "black", main = "Casca maior", xlab = "gramas", ylab = "Frequï¿½ncia", breaks = 64)
+hist(dados$ShellWeight, col = "#00deed", border = "black", main = "Casca maior", xlab = "gramas", ylab = "Frequï¿½ncia", breaks = 64)
+hist(dados$Rings, col = "#00deed", border = "black", main = "Casca maior", xlab = "Quantidade", ylab = "Frequï¿½ncia", breaks = 64)
 
-#Médias
+#Mï¿½dias
 mean(dados$LongestShell)
 mean(dados$Diameter)
 mean(dados$Height)
@@ -48,7 +48,7 @@ mean(dados$VisceraWeight)
 mean(dados$ShellWeight)
 mean(dados$Rings)
 
-#Desvios padrão
+#Desvios padrï¿½o
 sd(dados$LongestShell)
 sd(dados$Diameter)
 sd(dados$Height)
@@ -69,12 +69,12 @@ skewness(dados$ShellWeight)
 skewness(dados$Rings)
 
 #####Parte 3####
-#Funções para se conseguir a média/desvio padrão/skewness dos dados de forma mais direta e automatizada pelo R
+#Funï¿½ï¿½es para se conseguir a mï¿½dia/desvio padrï¿½o/skewness dos dados de forma mais direta e automatizada pelo R
 aggregate(dados[, 3:10], list(dados$Type), mean)
 aggregate(dados[, 3:10], list(dados$Type), sd)
 aggregate(dados[, 3:10], list(dados$Type), skewness)
 
-#Histogramas separados por classe e variável
+#Histogramas separados por classe e variï¿½vel
 #LongestShell
 ggplot(dados, aes(x = LongestShell)) +
   geom_histogram(aes(color = Type, fill = Type), 
@@ -125,59 +125,59 @@ ggplot(dados, aes(x = Rings)) +
   scale_fill_manual(values = c("#00AFBB", "#E7B800", "#EE82EE"))
 
 #####Parte 4#####
-##Abaixo têm alguns exemplos de gráficos (scatterplots) entre 2 variáveis e com indicativos de classes. Como são muitos gráficos
+##Abaixo tï¿½m alguns exemplos de grï¿½ficos (scatterplots) entre 2 variï¿½veis e com indicativos de classes. Como sï¿½o muitos grï¿½ficos
 ##decidi colocar apenas alguns exemplos e ir substituindo conforme a necessidade.
-#Relação LongestShell x Rings
+#Relaï¿½ï¿½o LongestShell x Rings
 ggplot(dados, aes(x=LongestShell, y=Rings, color=Type)) + 
   geom_point(size=1.5) +
   ggtitle("LongestShell x Rings") +
   theme_ipsum()
 
-#Relação LongestShell x WholeWeight
+#Relaï¿½ï¿½o LongestShell x WholeWeight
 ggplot(dados, aes(x=LongestShell, y=WholeWeight, color=Type)) + 
   geom_point(size=1.5) +
   ggtitle("LongestShell x WholeWeight") +
   theme_ipsum()
 
-#Relação WholeWeight x Rings
+#Relaï¿½ï¿½o WholeWeight x Rings
 ggplot(dados, aes(x=Rings, y=WholeWeight, color=Type)) + 
   geom_point(size=1.5) +
   ggtitle("WholeWeight x Rings") +
   theme_ipsum()
 
-#Relação WholeWeight x ShuckedWeight
+#Relaï¿½ï¿½o WholeWeight x ShuckedWeight
 ggplot(dados, aes(x=ShuckedWeight, y=WholeWeight, color=Type)) + 
   geom_point(size=1.5) +
   ggtitle("WholeWeight x ShuckedWeight") +
   theme_ipsum()
 
 
-#Relação LongestShell x Diameter
+#Relaï¿½ï¿½o LongestShell x Diameter
 ggplot(dados, aes(x=LongestShell, y=Diameter, color=Type)) + 
   geom_point(size=1.5) +
   ggtitle("LongestShell x Diameter") +
   theme_ipsum()
 
 
-#Relação WholeWeight x Diameter
+#Relaï¿½ï¿½o WholeWeight x Diameter
 ggplot(dados, aes(y=WholeWeight, x=Diameter, color=Type)) + 
   geom_point(size=1.5) +
   ggtitle("WholeWeight x Diameter") +
   theme_ipsum()
 
 
-#Relação Diameter x Height
+#Relaï¿½ï¿½o Diameter x Height
 ggplot(dados, aes(x=Diameter, y=Height, color=Type)) + 
   geom_point(size=1.5) +
   ggtitle("Diameter x Height") +
   theme_ipsum()
 
 
-#Correlação entre as variáveis
+#Correlaï¿½ï¿½o entre as variï¿½veis
 corr <- cor(dados[, 3:10])
 corrplot(corr, type = "lower", order = "hclust", 
          tl.col = "red", tl.srt = 45)
-corrplot.mixed(res, number.cex = .8, tl.col = "black", tl.cex = .8)
+corrplot.mixed(corr, number.cex = .8, tl.col = "black", tl.cex = .8)
 
 title <- "Abalone p-value significance"
 col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
@@ -191,23 +191,23 @@ corrplot(corr, tl.col = "black", tl.srt = 30, method="color", col=col(200),
          mar=c(0,0,1,0) # http://stackoverflow.com/a/14754408/54964
 )
 
-#Correlação com mais dados mostrados (histograma, corrplot, relações + regressão)
+#Correlaï¿½ï¿½o com mais dados mostrados (histograma, corrplot, relaï¿½ï¿½es + regressï¿½o)
 chart.Correlation(dados[, 3:10], histogram=TRUE, pch=19)
 
 
 #####Parte 5#####
 
-#Cálculo dos PCA
+#Cï¿½lculo dos PCA
 res.pca <- prcomp(dados[, 3:10], scale = TRUE)
 
-#Cálculo e demonstração dos eigenvalues para o PCA acima
+#Cï¿½lculo e demonstraï¿½ï¿½o dos eigenvalues para o PCA acima
 eig.val <- get_eigenvalue(res.pca)
 eig.val
 
-#Plot dos PCA com base na importância
+#Plot dos PCA com base na importï¿½ncia
 fviz_eig(res.pca)
 
-#Plot de quanto cada variável influenciou cada PCA
+#Plot de quanto cada variï¿½vel influenciou cada PCA
 fviz_pca_var(res.pca,
              col.var = "contrib", # Color by contributions to the PC
              gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
